@@ -1,0 +1,214 @@
+/* ===== Estilos básicos de la maqueta ===== */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eeeaff;
+    margin: 0;
+    padding: 20px;
+}
+
+/* La "ventana" del asistente */
+.asistente {
+    width: 380px;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.asistente header {
+    background-color: #5b2cf0;
+    color: white;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.chat {
+    padding: 14px;
+    min-height: 300px;
+}
+
+/* Burbujas de mensajes */
+.mensaje-usuario {
+    background-color: #5b2cf0;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 8px 0 8px 60px;
+}
+
+.mensaje-asistente {
+    background-color: #f0eefb;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 8px 60px 8px 0;
+}
+
+.pensando {
+    color: #777;
+    font-style: italic;
+}
+
+/* Fuente debajo de la respuesta */
+.fuente {
+    display: block;
+    margin-top: 8px;
+    font-size: 13px;
+}
+
+.fuente a {
+    color: #4a22c9;
+    font-weight: bold;
+}
+
+/* Estado de error */
+.error {
+    background-color: #fde2e4;
+    color: #8a1c2b;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 8px 40px 8px 0;
+}
+
+/* Botones y enlaces con forma de botón */
+.boton {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 4px 4px 4px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.boton-sugerencia {
+    background-color: white;
+    color: #5b2cf0;
+    border: 1px solid #5b2cf0;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.boton-reintentar {
+    background-color: #ffd166;
+    color: #333;
+}
+
+.boton-persona {
+    background-color: #2ec4a0;
+    color: #06352b;
+}
+
+/* Campo de pregunta */
+form {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+form button {
+    background-color: #5b2cf0;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+}
+
+/* Aviso de límites: a la vista, no en letra pequeña */
+.aviso {
+    background-color: #fff3cd;
+    border-top: 2px solid #ffd166;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #5a4500;
+}
+
+/* Salida a una persona */
+.tarjeta-persona {
+    background-color: #e6faf5;
+    border: 1px solid #2ec4a0;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 10px;
+}
+
+.volver {
+    display: block;
+    text-align: center;
+    margin-top: 14px;
+    font-size: 14px;
+}
+
+/* Barra de navegación de la maqueta (no es parte del asistente) */
+.nav-maqueta {
+    max-width: 380px;
+    margin: 0 auto 16px auto;
+    font-size: 13px;
+    text-align: center;
+    color: #444;
+}
+
+.nav-maqueta a {
+    color: #4a22c9;
+}
+
+/* Página del flujo */
+.hoja {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.hoja table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.hoja th,
+.hoja td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.hoja th {
+    background-color: #f0eefb;
+}
+
+/* ===== Navegación entre pantallas en un solo HTML ===== */
+/* Todas las pantallas se ocultan... */
+.pantalla {
+    display: none;
+}
+
+/* ...y solo se muestra la que está en la dirección (#cargando, #error, etc.) */
+.pantalla:target {
+    display: block;
+}
+
+/* La pantalla "vacío" se ve al abrir la página.
+   Se esconde cuando otra pantalla está activa (por eso va al final del HTML) */
+#vacio {
+    display: block;
+}
+
+.pantalla:target~#vacio {
+    display: none;
+}

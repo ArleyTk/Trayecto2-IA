@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente de la tienda de bicicletas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Cada pantalla es una <section>. Los enlaces (href="#nombre") te llevan de una a otra. -->
+
+    <!-- ========== 2. CARGANDO (camino que responde) ========== -->
+    <section class="pantalla" id="cargando">
+        <p class="nav-maqueta">Maqueta · <a href="#flujo">Ver flujo de interacción</a></p>
+        <div class="asistente">
+            <header>🚲 Asistente de la tienda de bicicletas</header>
+            <div class="chat">
+                <div class="mensaje-usuario">¿Cuánto dura la garantía de una bicicleta?</div>
+                <p class="pensando">⏳ Pensando…</p>
+                <!-- Simula que llegó la respuesta -->
+                <a class="boton boton-sugerencia" href="#respuesta">Ver respuesta →</a>
+                <a class="boton boton-persona" href="#persona">🙋 Hablar con una persona</a>
+            </div>
+            <div class="aviso">⚠️ Respuestas generadas con IA: pueden contener errores.</div>
+        </div>
+    </section>
+
+    <!-- ========== 2b. CARGANDO (camino que falla) ========== -->
+    <section class="pantalla" id="cargando-error">
+        <p class="nav-maqueta">Maqueta · <a href="#flujo">Ver flujo de interacción</a></p>
+        <div class="asistente">
+            <header>🚲 Asistente de la tienda de bicicletas</header>
+            <div class="chat">
+                <div class="mensaje-usuario">¿Tienen la bici modelo Trek-X en color rojo?</div>
+                <p class="pensando">⏳ Pensando…</p>
+                <!-- Simula que algo falló -->
+                <a class="boton boton-sugerencia" href="#error">Ver respuesta →</a>
+                <a class="boton boton-persona" href="#persona">🙋 Hablar con una persona</a>
+            </div>
+            <div class="aviso">⚠️ Respuestas generadas con IA: pueden contener errores.</div>
+        </div>
+    </section>
+
+    <!-- ========== 3. RESPUESTA CON FUENTE ========== -->
+    <section class="pantalla" id="respuesta">
+        <p class="nav-maqueta">Maqueta · <a href="#flujo">Ver flujo de interacción</a></p>
+        <div class="asistente">
+            <header>🚲 Asistente de la tienda de bicicletas</header>
+            <div class="chat">
+                <div class="mensaje-usuario">¿Cuánto dura la garantía de una bicicleta?</div>
+                <div class="mensaje-asistente">
+                    La garantía dura 12 meses desde la fecha de compra.
+                    <span class="fuente">🔗 <a href="#respuesta">Fuente: Política de garantías</a></span>
+                </div>
+                <a class="boton boton-sugerencia" href="#vacio">Hacer otra pregunta</a>
+                <a class="boton boton-persona" href="#persona">🙋 Hablar con una persona</a>
+            </div>
+            <div class="aviso">⚠️ Respuestas generadas con IA: pueden contener errores.</div>
+        </div>
+    </section>
+
+    <!-- ========== 4. ERROR HONESTO CON SALIDA ========== -->
+    <section class="pantalla" id="error">
+        <p class="nav-maqueta">Maqueta · <a href="#flujo">Ver flujo de interacción</a></p>
+        <div class="asistente">
+            <header>🚲 Asistente de la tienda de bicicletas</header>
+            <div class="chat">
+                <div class="mensaje-usuario">¿Tienen la bici modelo Trek-X en color rojo?</div>
+                <div class="error">
+                    ⚠️ No tengo esa información. No encontré el inventario de colores en mis documentos.
+                </div>
+                <a class="boton boton-reintentar" href="#cargando-error">🔄 Reintentar</a>
+                <a class="boton boton-persona" href="#persona">🙋 Hablar con una persona</a>
+            </div>
+            <div class="aviso">⚠️ Respuestas generadas con IA: pueden contener errores.</div>
+        </div>
+    </section>
+
+    <!-- ========== 5. SALIDA A UNA PERSONA ========== -->
+    <section class="pantalla" id="persona">
+        <p class="nav-maqueta">Maqueta · <a href="#flujo">Ver flujo de interacción</a></p>
+        <div class="asistente">
+            <header>🚲 Asistente de la tienda de bicicletas</header>
+            <div class="chat">
+                <div class="mensaje-asistente">Claro, te paso con una persona del equipo. 🙋</div>
+                <div class="tarjeta-persona">
+                    <p><strong>Atención de la tienda</strong></p>
+                    <p>Horario: lunes a sábado, 9:00 a.m. a 6:00 p.m.</p>
+                    <p>WhatsApp: 300 000 0000</p>
+                    <p>Correo: ayuda@tiendabicis.example</p>
+                </div>
+                <a class="volver" href="#vacio">← Volver al asistente</a>
+            </div>
+            <div class="aviso">⚠️ Respuestas generadas con IA: pueden contener errores.</div>
+        </div>
+    </section>
+
+    <!-- ========== FLUJO DE INTERACCIÓN + PRUEBA ========== -->
+    <section class="pantalla" id="flujo">
+        <div class="hoja">
+            <h1>Flujo de interacción</h1>
+            <p><a href="#vacio">← Volver a la maqueta</a></p>
+
+            <h2>Recorrido</h2>
+            <ol>
+                <li><strong>Vacío</strong> (<a href="#vacio">ver</a>): campo con ejemplo y sugerencias para empezar.
+                </li>
+                <li><strong>Cargando</strong> (<a href="#cargando">ver</a>): señal de espera "Pensando…".</li>
+                <li><strong>Respuesta</strong> (<a href="#respuesta">ver</a>): respuesta corta con su fuente debajo.
+                </li>
+                <li><strong>Error</strong> (<a href="#error">ver</a>): mensaje honesto, reintentar y salida a una
+                    persona.</li>
+                <li><strong>Persona</strong> (<a href="#persona">ver</a>): datos para hablar con alguien del equipo.
+                </li>
+            </ol>
+
+            <h2>Camino feliz y camino de error</h2>
+            <p>
+                Camino feliz: Vacío → Cargando → Respuesta con fuente.<br>
+                Camino de error: Vacío → Cargando → Error → Reintentar o Hablar con una persona.<br>
+                En todas las pantallas hay aviso de límites y botón para hablar con una persona.
+            </p>
+
+            <h2>Aviso de límites y control humano</h2>
+            <ul>
+                <li>El aviso "Respuestas generadas con IA: pueden contener errores" está a la vista en todas las
+                    pantallas, no en letra pequeña.</li>
+                <li>El botón "Hablar con una persona" aparece en todas las pantallas.</li>
+                <li>Temas delicados (garantías con reclamos, devoluciones de dinero, decisiones sobre una persona): el
+                    asistente deriva siempre a una persona.</li>
+            </ul>
+
+            <h2>Prueba con otro equipo</h2>
+            <p><strong>Tarea concreta:</strong> "Averigua cuánto dura la garantía de una bicicleta."</p>
+            <p>Quien observa no explica ni ayuda. Solo anota.</p>
+
+            <table>
+                <tr>
+                    <th>Qué observé</th>
+                    <th>Dónde dudó o no encontró algo</th>
+                    <th>Qué corregimos</th>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- ========== 1. VACÍO / CONSULTA (pantalla inicial) ==========
+       Va al final del HTML a propósito: así el CSS puede esconderla
+       cuando otra pantalla está activa. -->
+    <section class="pantalla" id="vacio">
+        <p class="nav-maqueta">Maqueta · <a href="#flujo">Ver flujo de interacción</a></p>
+        <div class="asistente">
+            <header>🚲 Asistente de la tienda de bicicletas</header>
+            <div class="chat">
+                <form action="#cargando">
+                    <input type="text" name="pregunta" placeholder="Ej.: ¿Cuánto dura la garantía de una bicicleta?">
+                    <button type="submit">Enviar</button>
+                </form>
+
+                <p>Puedes probar con:</p>
+                <a class="boton boton-sugerencia" href="#cargando">¿Cuánto dura la garantía de una bicicleta?</a>
+                <a class="boton boton-sugerencia" href="#cargando-error">¿Tienen la bici modelo Trek-X en color
+                    rojo?</a>
+
+                <a class="boton boton-persona" href="#persona">🙋 Hablar con una persona</a>
+            </div>
+            <div class="aviso">⚠️ Respuestas generadas con IA: pueden contener errores.</div>
+        </div>
+    </section>
+
+</body>
+
+</html>
